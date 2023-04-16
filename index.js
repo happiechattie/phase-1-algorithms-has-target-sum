@@ -1,17 +1,29 @@
 function hasTargetSum(array, target) {
-  // Write your algorithm here
+  for (i = 0; i < array.length; i++){
+    for(i2 = 0; i2 < array.length; i2++){
+      if (i !== i2 && array[i] + array[i2] === target){
+        return true;
+      }
+    }
+  }
+  return false;
 }
 
 /* 
-  Write the Big O time complexity of your function here
+  O(n^2)
 */
 
 /* 
-  Add your pseudocode here
+  iterate through array
+  for each item in array
+  skip item in array
+  iterate through other array items and find sum
+  if sum === target then return true
 */
 
 /*
-  Add written explanation of your solution here
+  this finds every sum possible and finishes when target is found
+  else return false
 */
 
 // You can run `node index.js` to view these console logs
@@ -29,6 +41,16 @@ if (require.main === module) {
 
   console.log("Expecting: false");
   console.log("=>", hasTargetSum([1, 2, 5], 4));
+
+  console.log("");
+
+  console.log("Expecting: true");
+  console.log("=>", hasTargetSum([2, 6, 8], 14));
+
+  console.log("");
+
+  console.log("Expecting: false");
+  console.log("=>", hasTargetSum([1, 2, 2], 9));
 }
 
 module.exports = hasTargetSum;
